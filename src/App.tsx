@@ -1,5 +1,5 @@
 import TelaInicial from './pages/Page1/Page1';
-import Tela2 from './pages/Page2';
+import Tela2 from './pages/Page2/Page2';
 import './App.css';
 import { useState } from 'react';
 
