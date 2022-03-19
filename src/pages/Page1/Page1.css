@@ -1,4 +1,4 @@
-figure {
+figure[class='tela-inicial'] {
     display: flex;
     align-items: center;
     text-align: center;
@@ -6,12 +6,12 @@ figure {
     margin-bottom: 73px;
 }
 
-img {
+img[class='tela-inicial'] {
     width: 55px;
     height: 65px;
 }
 
-figcaption {
+figcaption[class='tela-inicial'] {
     font-family: 'Righteous';
     color: #FFFFFF;
     font-weight: 400;
@@ -21,7 +21,7 @@ figcaption {
     max-width: fit-content;
     margin: 0 auto;
 }
-button {
+button[class='tela-inicial'] {
     font-family: 'Recursive';
     width: 141px;
     height: 31px;
