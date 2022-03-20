@@ -10,7 +10,8 @@ export default ({setPage}: {setPage: (pageNumber: number) => void
                 <img className='tela-inicial' src={lightning} alt="trovão" />
                 <figcaption className='tela-inicial'>ZapRecall</figcaption>
             </figure>
-            <button className='tela-inicial' onClick={() => setPage(1)}>Iniciar Recall!</button>
+            <button className='tela-inicial' 
+                    onClick={() => setPage(1)}>Iniciar Recall!</button>
         </>
     );
 }

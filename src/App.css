@@ -19,6 +19,6 @@ body {
     padding: 87px;
 }
 
-*[onclick] {
+button {
     cursor: pointer;
 }

@@ -1,19 +1,23 @@
+import React, { useState } from 'react';
 import Header from '../../components/page2Componentes/Header/Header';
-import React from 'react';
 import FlashCard from '../../components/page2Componentes/FlashCard/FlashCard';
+import Footer from '../../components/page2Componentes/Footer/Footer';
 import './Page2.css';
 
-export type Quizz = {
+type Quizz = {
     question: string,
     answer: string
 }
 
-export enum Score {
-    NotAnswered,
-    Wrong,
-    AlmostForgot,
-    Zap
+export type Answer = {
+    style: string,
+    icon: any
 }
+
+type AnswersState = [
+    Answer[],
+    (answers: Answer[]) => void
+]
 
 const quizzes: Quizz[] = [
     {
@@ -23,22 +27,25 @@ const quizzes: Quizz[] = [
 ];
 
 export default () => {
+
+    const [answers, setAnswers]: AnswersState = useState(Array(0));
     return (
         <>
             <Header/>
-            <ul>
+            <ol>
             {quizzes.map(({question, answer},index) => {
                 return (
-                <ol>
-                    <FlashCard key={index} 
-                               position={index} 
+                <li key={index}>
+                    <FlashCard position={index} 
                                question={question} 
-                               answer={answer} />
-                </ol>
+                               answer={answer}
+                               answers={answers}
+                               setAnswers={setAnswers} />
+                </li>
                 )})
             }
-            </ul>
-            
+            </ol>
+            <Footer numberOfQuizzes={quizzes.length} answers={answers}/>
         </>
     );
 }
