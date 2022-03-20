@@ -46,7 +46,7 @@ export default ({
         innerText: string
     }
 
-    const CustomButton = ({style, order, innerText}: CustomButton) => {
+    const Button = ({style, order, innerText}: CustomButton) => {
 
         return (
             <button className={`${style}`} 
@@ -108,7 +108,7 @@ export default ({
                         {buttons.map(({style, order, innerText}, index) => {
                             return (
                                 <li key={index}>
-                                    <CustomButton style={style} 
+                                    <Button style={style} 
                                                   order={order} 
                                                   innerText={innerText}/>
                                 </li>)})}
