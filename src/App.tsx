@@ -1,7 +1,7 @@
 import TelaInicial from './pages/Page1/Page1';
 import Tela2 from './pages/Page2/Page2';
 import './App.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const App = () => {
     const [page, setPage]: [number, (pageNumber: number) => void] = useState(0);

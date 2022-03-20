@@ -1,5 +1,6 @@
 import lightning from '../../assets/imgs/lightning.svg';
 import './Page1.css';
+import React from 'react';
 
 export default ({setPage}: {setPage: (pageNumber: number) => void
     }) => {
