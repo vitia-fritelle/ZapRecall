@@ -7,10 +7,11 @@ import Happy from '../../../assets/imgs/party.svg';
 type Footer = {
     numberOfQuizzes: number,
     answers: Answer[],
+    meta: number,
     setReset: (reset: boolean) => void
 }
 
-export default ({numberOfQuizzes, answers, setReset}: Footer) => {
+export default ({numberOfQuizzes, answers, meta, setReset}: Footer) => {
     
     const counter = answers.length;
 
@@ -22,9 +23,14 @@ export default ({numberOfQuizzes, answers, setReset}: Footer) => {
         return answers.find(element => element.style === 'wrong-answer');
     }
 
+    const hasAttainedMeta = () => {
+        return answers.filter(element => element.style === 'right-answer')
+                      .length >= meta;
+    }
+
     const conditionalRendering = () => {
         return isComplete()
-               ? !hasForgot()
+               ? !hasForgot() && hasAttainedMeta()
                  ?<>
                     <h3>
                         <img src={Happy} alt="Felicidades! "/>

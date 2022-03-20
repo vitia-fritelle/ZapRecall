@@ -10,9 +10,10 @@ type PageState = [
 
 const App = () => {
     const [page, setPage]: PageState = useState(0);
+    const [metaZaps, setMetaZaps] = useState(1);
     const pages = [
-        <TelaInicial setPage={setPage}/>, 
-        <Tela2/>
+        <TelaInicial setPage={setPage} setMeta={setMetaZaps}/>, 
+        <Tela2 meta={metaZaps}/>
     ];
     return (
         <div className="App">

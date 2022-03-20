@@ -63,7 +63,7 @@ const shuffle: (qzzs: Quizz[]) => Quizz[] = (qzzs) => {
 
 let shuffledQuizzes: Quizz[] = quizzes;
 
-export default () => {
+export default ({meta}: {meta: number}) => {
 
     const [answers, setAnswers]: AnswersState = useState(Array(0));
     const [reset, setReset] = useState(true);
@@ -99,7 +99,8 @@ export default () => {
             }
             </ol>
             <Footer numberOfQuizzes={quizzes.length} 
-                    answers={answers} 
+                    answers={answers}
+                    meta={meta} 
                     setReset={setReset}/>
             {reset && <HandlingReset setAnswers={setAnswers} 
                                      setReset={setReset}/>}
