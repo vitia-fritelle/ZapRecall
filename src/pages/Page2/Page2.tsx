@@ -4,6 +4,7 @@ import FlashCard from '../../components/page2Componentes/FlashCard/FlashCard';
 import Footer from '../../components/page2Componentes/Footer/Footer';
 import './Page2.css';
 
+
 type Quizz = {
     question: string,
     answer: string
@@ -17,11 +18,6 @@ export type Answer = {
 type AnswersState = [
     Answer[],
     (answers: Answer[]) => void
-]
-
-type ShuffleState = [
-    boolean,
-    (willShuffle: boolean) => void
 ]
 
 const quizzes: Quizz[] = [
@@ -61,22 +57,28 @@ const quizzes: Quizz[] = [
 ];
 
 const shuffle: (qzzs: Quizz[]) => Quizz[] = (qzzs) => {
-    const res = [... qzzs];
+    const res = [...qzzs];
     return res.sort((_) => Math.random() - 0.5);
 }
 
 let shuffledQuizzes: Quizz[] = quizzes;
-console.log(shuffledQuizzes)
+
 export default () => {
 
     const [answers, setAnswers]: AnswersState = useState(Array(0));
-    const [willShuffle, setWillShuffle]: ShuffleState = useState(Boolean(true));
+    const [reset, setReset] = useState(true);
 
-    if(willShuffle) {
-        
+    const HandlingReset = ({setAnswers, setReset}: {
+        setAnswers: (answers: Answer[]) => void, 
+        setReset: (reset: boolean) => void}) => {
+
+        setAnswers(Array(0));
+        setReset(false);
+        return null;
+    }
+
+    if(reset) {
         shuffledQuizzes = shuffle(quizzes); 
-        console.log(shuffledQuizzes)
-        setWillShuffle(false);
     };
     
     return (
@@ -85,17 +87,26 @@ export default () => {
             <ol>
             {shuffledQuizzes.map(({question, answer},index) => {
                 return (
-                <li key={index}>
-                    <FlashCard position={index} 
-                               question={question} 
-                               answer={answer}
-                               answers={answers}
-                               setAnswers={setAnswers} />
-                </li>
+                    <li key={index}>
+                        <FlashCard position={index} 
+                                    question={question} 
+                                    answer={answer}
+                                    answers={answers}
+                                    setAnswers={setAnswers}
+                                    reset={reset}/>
+                    </li>
                 )})
             }
             </ol>
-            <Footer numberOfQuizzes={quizzes.length} answers={answers}/>
+            <Footer numberOfQuizzes={quizzes.length} 
+                    answers={answers} 
+                    setReset={setReset}/>
+            {reset && <HandlingReset setAnswers={setAnswers} 
+                                     setReset={setReset}/>}
         </>
     );
 }
+
+//Gabriel, ele está dando um warning no Handlingreset porque eu 
+// estou atualizando um componente desconhecido. Depois tenta melhorar
+// essa parte, por favor. =)

@@ -23,15 +23,24 @@ type Flashcard = {
     question: string, 
     answer: string,
     answers: Answer[],
+    reset: Boolean,
     setAnswers: (answers: Answer[]) => void
 }
 
 export default ({
-    position, question, 
-    answer, answers, setAnswers}: Flashcard) => {
+    position, question, answer, answers, 
+    reset, setAnswers}: Flashcard) => {
     
     const [score, setScore] = useState(Score.NotAnswered);
     const [card, setCard] = useState(Card.Hidden);
+    
+    const willReset = () => {
+        return reset && score !== Score.NotAnswered;
+    } 
+
+    if(willReset()) {
+        setScore(Score.NotAnswered);
+    }
 
     const scoreFactory: Answer[] = [
         {style: '', icon: <PlayOutline onClick={() => setCard(Card.Question)}/>},

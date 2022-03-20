@@ -6,10 +6,11 @@ import Happy from '../../../assets/imgs/party.svg';
 
 type Footer = {
     numberOfQuizzes: number,
-    answers: Answer[]
+    answers: Answer[],
+    setReset: (reset: boolean) => void
 }
 
-export default ({numberOfQuizzes, answers}: Footer) => {
+export default ({numberOfQuizzes, answers, setReset}: Footer) => {
     
     const counter = answers.length;
 
@@ -52,7 +53,7 @@ export default ({numberOfQuizzes, answers}: Footer) => {
                                                      {element.icon}
                                                  </li>)}
             </ol>
-            
+            {isComplete() && <button onClick={() => setReset(true)}>REINICIAR RECALL</button>}
         </footer>
     );
 }
