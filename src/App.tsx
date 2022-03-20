@@ -8,11 +8,16 @@ type PageState = [
     (pageNumber: number) => void
 ];
 
+export enum Page {
+    Page1,
+    Page2
+}
+
 const App = () => {
-    const [page, setPage]: PageState = useState(0);
+    const [page, setPage]: PageState = useState(Page.Page1);
     const [metaZaps, setMetaZaps] = useState(1);
     const pages = [
-        <TelaInicial setPage={setPage} setMeta={setMetaZaps}/>, 
+        <TelaInicial setPage={() => setPage(Page.Page2)} setMeta={setMetaZaps}/>, 
         <Tela2 meta={metaZaps}/>
     ];
     return (

@@ -3,7 +3,7 @@ import './Page1.css';
 import React, { useState } from 'react';
 
 export default ({setPage, setMeta}: {
-    setPage: (pageNumber: number) => void,
+    setPage: () => void,
     setMeta: (meta: number) => void}) => {
     const [inputValue, setInputValue] = useState(0);
     const setValue = () => {
@@ -20,7 +20,7 @@ export default ({setPage, setMeta}: {
     return (
         <>
             <figure className='tela-inicial'>
-                <img className='tela-inicial' src={lightning} alt="trovão" />
+                <img className='tela-inicial' src={lightning} alt="trovão"/>
                 <figcaption className='tela-inicial'>ZapRecall</figcaption>
             </figure>
             <input type="text" 
@@ -28,7 +28,7 @@ export default ({setPage, setMeta}: {
                    placeholder="Digite sua meta de zaps..."
                    id="metaInput"/>
             <button className='tela-inicial' 
-                    onClick={() => {setMeta(inputValue);setPage(1)}}
+                    onClick={() => {setMeta(inputValue);setPage()}}
                     disabled={!(inputValue >= 1)}>Iniciar Recall!</button>
         </>
     );
