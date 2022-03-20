@@ -92,10 +92,12 @@ export default ({
         return (
             <>
                 <div className={`flashcard flipped`}>
-                    {question}
-                    <img src={`${TurnCard}`} 
-                         alt="turn card" 
-                         onClick={() => setCard(Card.Answer)}/>
+                    <p>{question}</p>
+                    <div>
+                        <img src={`${TurnCard}`} 
+                            alt="turn card" 
+                            onClick={() => setCard(Card.Answer)}/>
+                    </div>
                 </div>
             </>
         );

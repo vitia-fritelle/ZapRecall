@@ -25,6 +25,7 @@
 .flipped {
     width: 182px;
     min-height: 80px;
+    height: auto;
 
     background-color: #FFFFD5;
     font-family: 'Recursive';
@@ -38,6 +39,17 @@
     flex-flow: column nowrap;
     padding: 13px 6px 3px 6px;
 
+}
+
+.flipped > div {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flipped > p {
+    width: 100%;
+    text-align: left;
 }
 
 .flashcard > ul {
