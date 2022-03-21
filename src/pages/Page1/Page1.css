@@ -34,3 +34,46 @@ button[class='tela-inicial'] {
     line-height: 14px;
     color: #D70900;
 }
+button:disabled {
+    background: #E8E8E8;
+    color: #C0C0C0;
+}
+
+input[class='tela-inicial'] {
+    width: 141px;
+    height: 25px;
+
+    background: #FFFFFF;
+    border-radius: 5px;
+
+    box-sizing: border-box;
+    border: none;
+
+    margin-bottom: 6px;
+    padding: 7px 6px;
+
+}
+input::placeholder {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 11px;
+
+    color: #ADADAD;
+}
+select[class='tela-inicial'] {
+    width: 141px;
+    height: 25px;
+
+    background: #FFFFFF;
+    border-radius: 5px;
+
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 9px;
+    line-height: 11px;
+
+    color: #ADADAD;
+
+    margin-bottom: 6px;
+}

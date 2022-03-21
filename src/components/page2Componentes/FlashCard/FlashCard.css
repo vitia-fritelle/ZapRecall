@@ -107,3 +107,7 @@
     color: #2FBE34;
     text-decoration: line-through;
 }
+
+button {
+    border: none;
+}
