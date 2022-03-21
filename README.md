@@ -1,4 +1,6 @@
-# ZapRecall
+![lightning](./src/assets/imgs/lightning.svg)
+
+# ZapRecall    
 
 Implementação de um app de *flashcards* chamado **Zap Recall**.
 
